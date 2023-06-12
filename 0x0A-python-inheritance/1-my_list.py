@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-"""defines an inheretance class"""
+'''
+Python class to inherit from list class
+'''
 
 
 class MyList(list):
+    '''
+    Class inheritance
+    '''
 
     def print_sorted(self):
-        """print in sorted order"""
         print(sorted(self))
