@@ -1,10 +1,15 @@
 #!/usr/bin/python3
-'''Python Function to count number of lines in a file'''
+"""Defining a func that can write a file"""
 
 
-def number_of_lines(filename=""):
-    count = 0
-    with open(filename, encoding='utf-8') as f:
-        for line in f:
-            count += 1
-    return count
+def write_file(filename="", text=""):
+    """Writing a string to text file UTF8.
+
+    Args:
+        filename(): the name of the file
+        write():  the func to write on a file
+    Results:
+        returns the number of char written
+    """
+    with open(filename, "w", encoding="utf-8") as f:
+        return f.write(text)
