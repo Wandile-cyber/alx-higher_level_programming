@@ -8,12 +8,13 @@ import os
 save_json = __import__('7-save_to_json_file').save_to_json_file
 load_json = __import__('8-load_from_json_file').load_from_json_file
 
-my_list = []
+filename = "add_item.json"
+json_list = []
 
-if not os.path.exists("./add_item.json"):
-    save_json(my_list, "add_item.json")
-my_list = load_json("add_item.json")
+if os.path.exists(filename):
+    json_list = load_from_json_file(filename)
 
-for items in sys.argv[1:]:
-    my_list.append(items)
-save_json(my_list, "add_item.json")
+for index in argv[1:]:
+    json_list.append(index)
+
+save_to_json_file(json_list, filename)
