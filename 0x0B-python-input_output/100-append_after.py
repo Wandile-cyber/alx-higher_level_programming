@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Python function to inserta line to a text"""
+"""Defining a function to inserta line to a text"""
 
 
 
@@ -19,3 +19,4 @@ def append_after(filename="", search_string="", new_string=""):
                 text += new_string
     with open(filename, "w") as w:
         w.write(text)
+
