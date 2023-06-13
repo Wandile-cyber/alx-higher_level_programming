@@ -1,9 +1,11 @@
 #!/usr/bin/python3
-"""Python Function that reads a file and prints to stdout""" 
+'''Python Function to count number of lines in a file'''
 
 
-def read_file(filename=""):
+def number_of_lines(filename=""):
     """Reading a file using with""" 
+    count = 0
     with open(filename, encoding='utf-8') as f:
         for line in f:
-            print(line, end="")
+            count += 1
+    return count
