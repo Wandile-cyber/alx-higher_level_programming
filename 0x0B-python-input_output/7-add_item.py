@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""
-Python function that add arguments to a Python list
-"""
+"""Module for saving to json"""
+import json
+import os.path
 import sys
-import os
+from sys import argv
 
-save_json = __import__('7-save_to_json_file').save_to_json_file
-load_json = __import__('8-load_from_json_file').load_from_json_file
+save_to_json_file = __import__('7-save_to_json_file').save_to_json_file
+load_from_json_file = __import__('8-load_from_json_file').load_from_json_file
 
 filename = "add_item.json"
 json_list = []
