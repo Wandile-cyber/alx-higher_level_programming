@@ -4,13 +4,7 @@
 
 
 def append_after(filename="", search_string="", new_string=""):
-    """Insering a line of text to a file
-
-    args:
-        filename (str): The name of the file.
-        search_string (str): The string to search for within the file.
-        new_string (str): The string to insert.
-    """
+    """Insering"""
     read = []
     with open(filename, "r", encoding="utf-8") as f:
 	    read = f.readlines()
