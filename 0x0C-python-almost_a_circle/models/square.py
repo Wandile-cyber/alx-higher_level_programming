@@ -1,58 +1,49 @@
 #!/usr/bin/python3
-
-'''Square class module'''
+'''Module for Square class.'''
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    '''Instantiate Square class attributes'''
+    '''A Square class.'''
 
     def __init__(self, size, x=0, y=0, id=None):
-        '''Instantiation of Square attriutes'''
+        '''Constructor.'''
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
-        '''print attribute with __str__'''
-        a, b, c, d = self.id, self.x, self.y, self.size
-        return ("[Square] ({}) {}/{} - {}".format(a, b, c, d))
-
-    def update(self, *args, **kwargs):
-        '''Set up args for rectangle'''
-        if len(args) != 0:
-            if len(args) == 1:
-                self.id = args[0]
-            if len(args) == 2:
-                self.id = args[0]
-                self.size = args[1]
-            if len(args) == 3:
-                self.id = args[0]
-                self.size = args[1]
-                self.x = args[2]
-            if len(args) == 4:
-                self.id = args[0]
-                self.size = args[1]
-                self.x = args[2]
-                self.y = args[3]
-        else:
-            for key, values in kwargs.items():
-                setattr(self, key, values)
+        '''Returns string info about this square.'''
+        return '[{}] ({}) {}/{} - {}'.\
+            format(type(self).__name__, self.id, self.x, self.y, self.width)
 
     @property
     def size(self):
-        """set the property of width"""
-        return self.height
+        '''Size of this square.'''
+        return self.width
 
     @size.setter
     def size(self, value):
-        '''Method to set size'''
-        if type(value) is not int:
-            raise TypeError('width must be an integer')
-        if value <= 0:
-            raise ValueError('width must be > 0')
-        else:
-            self.height = value
+        self.width = value
+        self.height = value
+
+    def __update(self, id=None, size=None, x=None, y=None):
+        '''Internal method that updates instance attributes via */**args.'''
+        if id is not None:
+            self.id = id
+        if size is not None:
+            self.size = size
+        if x is not None:
+            self.x = x
+        if y is not None:
+            self.y = y
+
+    def update(self, *args, **kwargs):
+        '''Updates instance attributes via no-keyword & keyword args.'''
+        if args:
+            self.__update(*args)
+        elif kwargs:
+            self.__update(**kwargs)
 
     def to_dictionary(self):
-        '''Method to return dictionary representation of square'''
-        dic = {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
-        return dic
+        '''Returns dictionary representation of this class.'''
+        return {"id": self.id, "size": self.width,
+                "x": self.x, "y": self.y}
