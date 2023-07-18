@@ -1,4 +1,2 @@
--- a script that lists all records of the table second_table
--- Results should display both the score and the name (in this order)
--- Records should be ordered by score (top first) 
-SELECT score, id, name FROM second_table ORDER BY score DESC; 
+-- MySql script that lists ordered values of items in table
+SELECT score, name FROM second_table ORDER by score DESC; 
