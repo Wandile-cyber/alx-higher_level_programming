@@ -5,4 +5,3 @@ if (process.argv.length <= 3) {
   const output = process.argv.map(Number).slice(2).sort((a, b) => a - b).reverse();
   console.log(output[1]);
 }
-
