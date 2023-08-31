@@ -1,30 +1,28 @@
 #!/usr/bin/python3
 """
-Find a peak element in the list of integers.
-
-Parameters:
-list_of_integers (list): List of unsorted integers
-
-Returns: 
-int: Peak element value
-
+   this function finds a peak in a list of unsorted integers
 """
 
-if len(list_of_integers) == 1:
-    return list_of_integers[0]
-    
-mid = len(list_of_integers) // 2
-mid_value = list_of_integers[mid]   
 
-"""
-If middle element is greater than neighbors, it is a peak
-Otherwise recursively search left or right half
-"""
+def find_peak(numbr):
+    '''
+        Finds the peak in a list of numbers
+    '''
+    length = len(numbr)
+    if length == 0:
+        return None
+    if length == 1:
+        return (numbr[0])
+    if length == 2:
+        return numbr[0] if numbr[0] >= numbr[1] else numbr[1]
 
-if mid_value > list_of_integers[mid-1] and mid_value > list_of_integers[mid+1]:
-    return mid_value
-
-if mid_value < list_of_integers[mid-1]:  
-    return find_peak(list_of_integers[:mid])
-
-return find_peak(list_of_integers[mid:])
+    for idx in range(0, length):
+        value = numbr[idx]
+        if (idx > 0 and idx < length - 1 and
+                numbr[idx + 1] <= value and numbr[idx - 1] <= value):
+                return value
+        elif idx == 0 and numbr[idx + 1] <= value:
+            return value
+        elif idx == length - 1 and numbr[idx - 1] <= value:
+            return value
+    return pick
