@@ -1,16 +1,30 @@
 #!/usr/bin/python3
-def find_peak(list_of_integers):
-    """ Python function to find peak number"""
-    le = len(list_of_integers)
-    if le == 0:
-        return
-    m = le // 2
-    pivot = list_of_integers[m]
-    left = list_of_integers[m - 1]
+"""
+Find a peak element in the list of integers.
 
-    if (m == le - 1 or pivot >= list_of_integers[m + 1]) and\
-            (m == 0 or pivot >= left):
-        return pivot
-    elif m != le - 1 and list_of_integers[m + 1] > pivot:
-        return (find_peak(list_of_integers[m + 1:]))
-    return (find_peak(list_of_integers[:m]))
+Parameters:
+list_of_integers (list): List of unsorted integers
+
+Returns: 
+int: Peak element value
+
+"""
+
+if len(list_of_integers) == 1:
+    return list_of_integers[0]
+    
+mid = len(list_of_integers) // 2
+mid_value = list_of_integers[mid]   
+
+"""
+If middle element is greater than neighbors, it is a peak
+Otherwise recursively search left or right half
+"""
+
+if mid_value > list_of_integers[mid-1] and mid_value > list_of_integers[mid+1]:
+    return mid_value
+
+if mid_value < list_of_integers[mid-1]:  
+    return find_peak(list_of_integers[:mid])
+
+return find_peak(list_of_integers[mid:])
