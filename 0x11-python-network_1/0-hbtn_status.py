@@ -3,5 +3,7 @@
 import urllib.request
 
 with urllib.request.urlopen('https://alx-intranet.hbtn.io/status') as response:
-    html = response.read()
-    print('-' + html.decode())
+    print("Body response:")
+    print(f"\t- type: {type(response.read())}")
+    print(f"\t- content: {response.read()}")
+    print(f"\t- utf8 content: {response.read().decode()}")
