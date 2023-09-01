@@ -1,9 +1,14 @@
 #!/usr/bin/python3
-# Python script that displays getheader value
+"""
+script to fetch header
+"""
+
 
 if __name__ == '__main__':
-    import urllib.request as ur
+    from urllib.request import Request, urlopen
     from sys import argv
 
-    with ur.urlopen(argv[1]) as header:
-        print(header.getheader('X-Request-Id'))
+    req = Request(argv[1])
+    with urlopen(req) as res:
+        header = res.info()
+        print(header['X-Request-Id'])
