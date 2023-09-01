@@ -1,9 +1,7 @@
 #!/usr/bin/python3
 # Python script that fetches a url
-import urllib.request as ur
+import urllib.request
 
-with ur.urlopen('https://intranet.hbtn.io/status') as res:
-    res = res.read()
-
-print('Body response:\n\t- type: {}\n\t- content: {}'.format(type(res), res))
-print('\t- utf8 content: {}'.format(str(res, 'utf-8')))
+with urllib.request.urlopen('https://alx-intranet.hbtn.io/status') as response:
+    html = response.read()
+    print('-' + html.decode())
