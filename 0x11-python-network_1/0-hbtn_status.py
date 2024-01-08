@@ -1,16 +1,13 @@
 #!/usr/bin/python3
-"""
-Python script
-"""
+"""A python script that fetches data"""
+import urllib.request
 
 
-if __name__ == '__main__':
-    from urllib.request import Request, urlopen
-
-    req = Request('https://intranet.hbtn.io/status')
-    with urlopen(req) as f:
-        the_page = f.read()
-        print('Body response:')
-        print('\t- type: {}'.format(type(the_page)))
-        print('\t- content: {}'.format(the_page))
-        print('\t- utf8 content: {}'.format(the_page.decode('utf8')))
+if __name__ == "__main__":
+    the_request = urllib.request.Request("https://intranet.hbtn.io/status")
+    with urllib.request.urlopen(the_request) as results:
+        body_data = results.read()
+        print("Body response:")
+        print("\t- type: {}".format(type(body_data)))
+        print("\t- content: {}".format(body_data))
+        print("\t- utf8 content: {}".format(body_data.decode("utf-8")))
