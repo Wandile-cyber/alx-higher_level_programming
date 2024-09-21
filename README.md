@@ -1,9 +1,5 @@
-## notreblohschool-high_level_programming
-
-!["notrebloh Logo"](https://www.notreblohschool.com/assets/notrebloh-logo-1cc451260ca3cd297def53f2250a9794810667c7ca7b5fa5879a569a457bf16f.png)
-
-![](https://s3.amazonaws.com/intranet-projects-files/notreblohschool-higher-level_programming+/231/48a9fdbd67c84a328a9df9ec8d93b9ac2458ac37721d7d53e51a27fb2bdc5263.jpg)
-
+## alx-high_level_programming
+ 
 ## Python (programming language)
 
 Python is an interpreted high-level programming language for general-purpose programming. Created by Guido van Rossum and first released in 1991, Python has a design philosophy that emphasizes code readability, notably using significant whitespace. It provides constructs that enable clear programming on both small and large scales
